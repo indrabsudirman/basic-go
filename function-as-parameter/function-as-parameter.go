@@ -2,20 +2,22 @@ package main
 
 import "fmt"
 
-func sayHelloWithFilter(name string, filter func(string) string) {
+//pakai type declaration
+type Filter func(string) string
+
+func sayHelloWithFilter(name string, filter Filter) {
 	nameFiltered := filter(name)
 	fmt.Println("Hello", nameFiltered)
 }
 
 func spamFilter(name string) string {
 	if name == "Anjing" {
-		return "..."		
+		return "..."
 	} else {
 		return name
 
 	}
 
-	
 }
 
 func main() {
